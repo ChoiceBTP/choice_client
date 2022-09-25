@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Button, Flex, Heading, Highlight, Text, useDisclosure } from "@chakra-ui/react";
+import React, { useState } from "react";
+import ChatbotDialog from "./components/ChatbotDialog";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
-export default App;
+    return (
+        <Box h="100vh" w="100vw" overflow="hidden">
+            <Flex h="100%" w="100%" overflow="hidden" direction="row" justify="space-evenly">
+                <Flex alignSelf="left" justify="space-evenly" direction="column">
+                    <Box bg="blue" w="20vw" h="20vh">
+                        <Text>
+                            Track Goals
+                        </Text>
+                    </Box>
+                    <Box bg="blue" w="20vw" h="20vh">
+                        Update Goals
+                    </Box>
+                </Flex>
+                <Flex direction="column" justify="space-evenly">
+                    <Heading lineHeight='tall'>
+                        <Highlight
+                            query='choice'
+                            styles={{ px: '2', py: '1', rounded: 'full', bg: 'red.100' }}
+                        >
+                            Make that choice
+                        </Highlight>
+                    </Heading>
+                    <Heading as="h2">
+                        Hi user
+                    </Heading>
+                    <Button onClick={onOpen}>Open Modal</Button>
+                </Flex>
+            </Flex>
+            <ChatbotDialog onClose={onClose} isOpen={isOpen} />
+        </Box>
+    )
+};
+
+export default App
