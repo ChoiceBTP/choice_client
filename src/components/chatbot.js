@@ -224,14 +224,14 @@ function chatbot() {
                 <div className="main_content">
                   <div className="messages">
                     <div
-                      className="bot-message"
-                      id="message1"
-                      ref={botmessage}
-                    ></div>
-                    <div
                       className="human-message"
                       id="message2"
                       ref={humanMessage}
+                    ></div>
+                    <div
+                      className="bot-message"
+                      id="message1"
+                      ref={botmessage}
                     ></div>
                   </div>
                 </div>

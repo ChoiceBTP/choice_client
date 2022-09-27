@@ -38,30 +38,31 @@
     margin: 30px 0 0;
   }
   .wrapper .content .main .main_content .messages{
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: space-between;
   }
   .wrapper .content .main .main_content .messages .bot-message{
-    width: 100%;
+    width: 75%;
     padding: 15px;
-    text-align: center;
+    text-align: left;
     background: #EDECED;
     font-style: 1.1em;
     border-radius: 10px;
+    top: 120px;
     margin: 0 10px 0;
   }
   .wrapper .content .main .main_content .messages .human-message{
-    width: 100%;
+    width: 75%;
     padding: 15px;
-    text-align: center;
+    text-align: right;
     background: #363062;
     color: #EDECED;
     font-style: 1.1em;
     border-radius: 10px;
-    /* margin: 0 10px 0; */
+    margin: 0 0 0 23%;
     position: relative;
-    top: 120px;
+    top: 0px;
     margin-bottom: 20px;
   }
   .wrapper .content .bottom{
