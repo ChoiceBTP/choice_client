@@ -1,9 +1,11 @@
 import { Box, Flex, Grid, Heading, SimpleGrid } from "@chakra-ui/react"
+import HomeButton from "./HomeButton";
 import SettingsButton from "./SettingsButton";
 
 const Dashboard = () => {
     return (
         <>
+            <HomeButton />
             <SettingsButton />
             <Flex padding="5" w="100vw" h="100vh" direction="column" >
                 <Heading as="h1">

@@ -6,6 +6,7 @@ import ChatbotDialog from "./components/ChatbotDialog";
 import Dashboard from "./components/Dashboard";
 import HomePage from "./components/HomePage";
 import Settings from "./components/Settings";
+import UpdateGoals from "./components/UpdateGoals";
 
 const App = () => {
 
@@ -16,7 +17,7 @@ const App = () => {
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/track" element={<Dashboard />} />
-                <Route path="/update" element={<div>update here</div>} />
+                <Route path="/update" element={<UpdateGoals />} />
             </Routes>
         </Box>
     )
