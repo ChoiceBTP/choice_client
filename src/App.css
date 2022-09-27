@@ -73,9 +73,9 @@
     align-items: center;
   }
   .wrapper .content .bottom .btm .input input{
-    width: 400px;
+    width: 250px;
     height: 58px;
-    padding-left: 36px;
+    padding-left: 30px;
     outline: none;
     border: none;
     background: #EDECED;

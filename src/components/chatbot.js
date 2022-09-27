@@ -78,7 +78,7 @@ function chatbot() {
         }, 2000);
       }
       let welcome = [
-        "hi|hello|Hello|hey|sup|yo|wassup|whats up|howdy|greetings|good morning|good afternoon|good evening",
+        "Hi|hello|Hello|hey|sup|yo|wassup|whats up|howdy|greetings|good morning|good afternoon|good evening",
       ];
       let words2 = new RegExp(welcome);
       if (words2.test(document.querySelector("#input").value)) {
@@ -86,7 +86,7 @@ function chatbot() {
         // if the input contains welcome words
         getBotMessage.innerText = "Typing...";
         setTimeout(() => {
-          getBotMessage.innerText = "Hello There how are you doing today?"; // display the message
+          getBotMessage.innerText = "Hello there! How are you doing today?"; // display the message
           status.innerText = "Active";
           status.style.color = "green";
           inputRef.value = ""; // clear the input
