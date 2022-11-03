@@ -1,10 +1,18 @@
-import { Flex, Heading, Switch, Text, useColorMode } from "@chakra-ui/react"
+import { Button, Flex, Heading, Switch, Text, useColorMode } from "@chakra-ui/react"
 import { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import HomeButton from "./HomeButton";
 
 const Settings = () => {
+    const navigate = useNavigate()
     const { colorMode, toggleColorMode } = useColorMode();
     const [on, setOn] = useState(colorMode === "dark");
+
+    const handleLogout = () => {
+        localStorage.setItem('user', null)
+        navigate('/signup')
+    }
+
     return (
         <>
             <HomeButton />
@@ -22,9 +30,12 @@ const Settings = () => {
                             size="lg" />
                     </Flex>
                     <Flex w="80%" margin="10" justifyContent="space-between">
-                        <Text>Setting 2</Text>
+                        <Text>Privacy Info</Text>
                         <Text>?</Text>
                     </Flex>
+                    <Button margin="10" alignSelf="center" w="20%" colorScheme="teal" onClick={handleLogout}>
+                        Logout
+                    </Button>
                 </Flex>
             </Flex>
         </>
