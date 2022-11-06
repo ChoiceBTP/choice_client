@@ -3,9 +3,12 @@ import { Box, Button, Flex, Heading, Highlight, IconButton, scaleFadeConfig, Tex
 import { Link } from "react-router-dom"
 import ChatbotDialog from "./ChatbotDialog"
 import SettingsButton from "./SettingsButton"
+import InfoReq from "./InfoReq"
 
 const HomePage = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    // const { isOpen: isFirstOpen , onOpen: onFirstOpen, onClose: onFirstClose } = useDisclosure()
+    const { isOpen: isSecondOpen , onOpen: onSecondOpen, onClose: onSecondClose } = useDisclosure()
+
     return (
         <>
             <SettingsButton />
@@ -15,7 +18,8 @@ const HomePage = () => {
                         <Flex _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.1)" }} bg="twitter.600" borderRadius="md" w="20vw" h="20vh" justify="center" align="center">
                             <Text>
                                 Track Goals
-                            </Text>
+                            </Text>                            
+                            {/* <InfoReq onClose={onFirstClose} isOpen={isFirstOpen} /> */}
                         </Flex>
                     </Link>
                     <Link to="/update">
@@ -39,10 +43,10 @@ const HomePage = () => {
                         Hi BTP
                     </Heading>
                     <Tooltip label="Chatbot">
-                        <IconButton onClick={onOpen} icon={<ChatIcon />} />
-                    </Tooltip>
-                </Flex>
-                <ChatbotDialog onClose={onClose} isOpen={isOpen} />
+                        <IconButton onClick={onSecondOpen} icon={<ChatIcon />} />
+                    </Tooltip>                    
+                    <ChatbotDialog onClose={onSecondClose} isOpen={isSecondOpen} />   
+                </Flex>             
             </Flex>
         </>
     )

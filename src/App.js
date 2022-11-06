@@ -7,6 +7,8 @@ import Dashboard from "./components/Dashboard";
 import HomePage from "./components/HomePage";
 import Settings from "./components/Settings";
 import UpdateGoals from "./components/UpdateGoals";
+import InfoReq from "./components/InfoReq"
+import "./styles.css";
 
 const App = () => {
 
@@ -16,7 +18,7 @@ const App = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/track" element={<Dashboard />} />
+                <Route path="/track" element={<InfoReq />} />
                 <Route path="/update" element={<UpdateGoals />} />
             </Routes>
         </Box>
