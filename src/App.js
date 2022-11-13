@@ -12,14 +12,14 @@ import UpdateGoals from "./components/UpdateGoals";
 const App = () => {
     const [user, setUser] = useState(null)
     useEffect(() => {
-        // let user = localStorage.getItem('user')
         setUser(localStorage.getItem('user'))
-        console.log(localStorage.getItem('user'))
+        console.log(typeof (localStorage.getItem('user')))
+        console.log("null" === localStorage.getItem('user'))
     }, [])
     return (
         <Box h="100vh" w="100vw" overflow="hidden">
             <Routes>
-                <Route path="/" element={user !== null ? <HomePage /> : <Signup />} />
+                <Route path="/" element={user !== "null" ? <HomePage /> : <Signup />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/settings" element={<Settings />} />

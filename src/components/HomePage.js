@@ -11,46 +11,51 @@ const HomePage = () => {
 
     useEffect(() => {
         setUser(localStorage.getItem('user'))
+        console.log(localStorage.getItem('user'))
     }, [])
 
     return (
         <>
-            <SettingsButton />
-            <Flex h="100%" w="100%" overflow="hidden" direction="row" justify="space-evenly">
-                <Flex alignSelf="left" justify="space-evenly" direction="column">
-                    <Link to="/track">
-                        <Flex _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.02)" }} bg="twitter.600" borderRadius="md" w="20vw" h="20vh" justify="center" align="center">
-                            <Text fontSize="2xl">
-                                Track Goals
-                            </Text>
+            {user === "null" ? "signup first" :
+                <>
+                    <SettingsButton />
+                    <Flex h="100%" w="100%" overflow="hidden" direction="row" justify="space-evenly">
+                        <Flex alignSelf="left" justify="space-evenly" direction="column">
+                            <Link to="/track">
+                                <Flex _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.02)" }} bg="twitter.600" borderRadius="md" w="20vw" h="20vh" justify="center" align="center">
+                                    <Text fontSize="2xl">
+                                        Track Goals
+                                    </Text>
+                                </Flex>
+                            </Link>
+                            <Link to="/update">
+                                <Flex _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.02)" }} borderRadius="md" bg="twitter.600" w="20vw" h="20vh" justify="center" align="center">
+                                    <Text fontSize="2xl">
+                                        Update Goals
+                                    </Text>
+                                </Flex>
+                            </Link>
                         </Flex>
-                    </Link>
-                    <Link to="/update">
-                        <Flex _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.02)" }} borderRadius="md" bg="twitter.600" w="20vw" h="20vh" justify="center" align="center">
-                            <Text fontSize="2xl">
-                                Update Goals
-                            </Text>
+                        <Flex direction="column" justify="space-evenly">
+                            <Heading lineHeight='tall'>
+                                <Highlight
+                                    query='choice'
+                                    styles={{ px: '2', py: '1', rounded: 'full', bg: 'red.100' }}
+                                >
+                                    Make that choice
+                                </Highlight>
+                            </Heading>
+                            <Heading as="h2">
+                                Hi {user}
+                            </Heading>
+                            <Tooltip label="Chatbot">
+                                <IconButton onClick={onOpen} icon={<ChatIcon />} />
+                            </Tooltip>
                         </Flex>
-                    </Link>
-                </Flex>
-                <Flex direction="column" justify="space-evenly">
-                    <Heading lineHeight='tall'>
-                        <Highlight
-                            query='choice'
-                            styles={{ px: '2', py: '1', rounded: 'full', bg: 'red.100' }}
-                        >
-                            Make that choice
-                        </Highlight>
-                    </Heading>
-                    <Heading as="h2">
-                        Hi {user}
-                    </Heading>
-                    <Tooltip label="Chatbot">
-                        <IconButton onClick={onOpen} icon={<ChatIcon />} />
-                    </Tooltip>
-                </Flex>
-                <ChatbotDialog onClose={onClose} isOpen={isOpen} />
-            </Flex>
+                        <ChatbotDialog onClose={onClose} isOpen={isOpen} />
+                    </Flex>
+                </>
+            }
         </>
     )
 }
