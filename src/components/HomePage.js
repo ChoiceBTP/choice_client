@@ -7,7 +7,7 @@ import SettingsButton from "./SettingsButton"
 
 const HomePage = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [user, setUser] = useState()
+    const [user, setUser] = useState('')
 
     useEffect(() => {
         setUser(localStorage.getItem('user'))

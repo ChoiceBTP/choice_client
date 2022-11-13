@@ -1,4 +1,4 @@
-import { Button, Flex, FormLabel, Heading, Highlight, Input, Text } from '@chakra-ui/react';
+import { Button, Flex, FormLabel, Heading, Highlight, Input, Text, useToast } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
@@ -7,12 +7,29 @@ import { useNavigate } from 'react-router-dom';
 const Signup = () => {
     const [user, setUser] = useState('')
     const navigate = useNavigate()
-
+    const toast = useToast()
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('user', user)
-        setUser('')
-        navigate('/home')
+        if (user === '') {
+            toast({
+                title: 'Error.',
+                description: "Please provide a name",
+                status: 'error',
+                duration: 2000,
+                isClosable: true,
+            })
+        } else {
+            localStorage.setItem('user', user)
+            setUser('null')
+            navigate('/update')
+            toast({
+                title: 'Welcome.',
+                description: "Complete your sign up by selecting the goals you want to track :)",
+                status: 'success',
+                duration: 5000,
+                isClosable: true,
+            })
+        }
     }
 
     return (

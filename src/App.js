@@ -10,7 +10,7 @@ import Signup from "./components/Signup";
 import UpdateGoals from "./components/UpdateGoals";
 
 const App = () => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState('')
     useEffect(() => {
         setUser(localStorage.getItem('user'))
         console.log(typeof (localStorage.getItem('user')))
