@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import "./../App.css";
 import image from "./../img/bot_image.jpg";
 
-function chatbot() {
+const chatbot = ()=> {
     const humanMessage = useRef();
     const botmessage = useRef();
     const input = useRef();
@@ -201,6 +201,18 @@ function chatbot() {
         getBotMessage.innerText = "Typing...";
         setTimeout(() => {
           getBotMessage.innerText = "I am 1 year old";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
+
+      let query1 = [
+        "What are the scholarships offered by NSUT?|What are the scholarships offered by NSUT|What are the scholarships offered by NSIT|What are the scholarships offered by NSIT? | What are some scholarships offered by NSUT? | what are some scholarships offered by NSUT? | what are the scholarships offered by NSUT",
+      ];
+      let words12 = new RegExp(query1);
+      if (words12.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "Please refer to this link to find the details you are looking for: http://www.nsit.ac.in/UAIS/";
           inputRef.value = ""; // clear the input
         }, 2000);
       }
