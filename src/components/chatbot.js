@@ -216,6 +216,30 @@ const chatbot = ()=> {
           inputRef.value = ""; // clear the input
         }, 2000);
       }
+
+      let query2 = [
+        "what programmes does nsut offer|what programmes does nsut offer?|what programmes does NSUT offer|what programs does NSUT offer | what programs does nsut offer | what programs does nsut offer? | What programs does nsut offer?",
+      ];
+      let words13 = new RegExp(query2);
+      if (words13.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "NSUT offers Under-Graduate, Post-Graduate and Doctorate programmes. For more information please hop onto this website: http://www.nsit.ac.in/academics/courses/ ";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
+
+      let query3 = [
+        "what is the fee structure at nsut|what is the fee structure at nsut?|What is the fee structure at nsut|What is the fee structure at NSUT?|what is the fee structure like at NSUT?|what is the fee structure like at nsut|what is the fee structure like at nsut?",
+      ];
+      let words14 = new RegExp(query3);
+      if (words14.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "For information about this, please hop onto this link: http://www.nsit.ac.in/academics/fee-structure/";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
       getHumanMessage.innerText = inputRef.value; // display the message
     };
     
