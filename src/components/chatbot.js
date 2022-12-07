@@ -240,6 +240,18 @@ const chatbot = ()=> {
           inputRef.value = ""; // clear the input
         }, 2000);
       }
+
+      let query4 = [
+        "what is the course curriculum at nsut|what is the course curriculum at nsut?|What is the course curriculum at nsut|What is the course curriculum at NSUT?|what is the course curriculum like at NSUT?|what is the course curriculum like at nsut|what is the course curriculum like at nsut?",
+      ];
+      let words15 = new RegExp(query4);
+      if (words15.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "For information about this, please hop onto this link: http://www.nsit.ac.in/academics/curriculum/";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
       getHumanMessage.innerText = inputRef.value; // display the message
     };
     
