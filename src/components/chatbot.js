@@ -252,6 +252,19 @@ const chatbot = ()=> {
           inputRef.value = ""; // clear the input
         }, 2000);
       }
+
+      let query5 = [
+        "how is the hostel facility at nsut|how is the hostel facility at nsut?|How is the hostel facility at nsut|How is the hostel facility at nsut?|How is the hostel facility at NSUT?|how are the hostels provided by nsut?|how are the hostels provided by nsut",
+      ];
+      let words16 = new RegExp(query5);
+      if (words16.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "NSUT has hostel provision for girls and boys separately. Many facilities are incorporated to ensure a good hostel life for all residents. These hostels can availed on the basis of distance from their home. For information about this, please hop onto this link: http://www.nsit.ac.in/campus-life/hostels/";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
+
       getHumanMessage.innerText = inputRef.value; // display the message
     };
     
