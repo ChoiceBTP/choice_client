@@ -265,6 +265,17 @@ const chatbot = ()=> {
         }, 2000);
       }
 
+      let query6 = [
+        "how are the placements at nsut|how are the placements at nsut?|How are the placements at nsut|How are the placements at nsut?|How are the placements at NSUT?|how are the placements at NSUT?|how are the placements at NSUT",
+      ];
+      let words17 = new RegExp(query6);
+      if (words17.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "NSUT has a good placement record. A high percentage of the eligible students get offered jobs by reputed firms. For information about this, please hop onto this link: http://www.nsit.ac.in/placement/";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
       getHumanMessage.innerText = inputRef.value; // display the message
     };
     
