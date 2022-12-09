@@ -1,14 +1,18 @@
+import React from "react";
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react"
+import { useState, useRef } from "react";
+import ChatBot from './chatbot';
 
 const ChatbotDialog = ({ isOpen, onClose }) => {
-    return (
+    return(
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
                 <ModalHeader>Choice Chatbot</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    Chatbot here
+                    <ChatBot />
+                    chatbot here
                 </ModalBody>
 
                 <ModalFooter>
