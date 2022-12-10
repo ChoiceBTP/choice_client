@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import "./../App.css";
 import image from "./../img/bot_image.jpg";
 
-const Chatbot = () => {
+const chatbot = () => {
   const humanMessage = useRef();
   const botmessage = useRef();
   const input = useRef();
@@ -78,7 +78,7 @@ const Chatbot = () => {
       }, 2000);
     }
     let welcome = [
-      "Hi|hello|Hello|hey|sup|yo|wassup|whats up|howdy|greetings|good morning|good afternoon|good evening",
+      "hi|Hi|hello|Hello|hey|sup|yo|wassup|whats up|howdy|greetings|good morning|good afternoon|good evening",
     ];
     let words2 = new RegExp(welcome);
     if (words2.test(document.querySelector("#input").value)) {
@@ -113,7 +113,7 @@ const Chatbot = () => {
     if (words4.test(document.querySelector("#input").value)) {
       getBotMessage.innerText = "Typing...";
       setTimeout(() => {
-        getBotMessage.innerText = "You are welcome";
+        getBotMessage.innerText = "You're welcome!";
         inputRef.value = ""; // clear the input
       }, 2000);
     }
@@ -276,6 +276,18 @@ const Chatbot = () => {
         inputRef.value = ""; // clear the input
       }, 2000);
     }
+
+    let query7 = [
+      "i want some information regarding nsut|I want some information regarding nsut|I want some information regarding NSUT|i want some information regarding NSUT|i need some information regarding nsut|I need some information regarding nsut|i need some information regarding NSUT",
+    ];
+    let words18 = new RegExp(query7);
+    if (words18.test(document.querySelector("#input").value)) {
+      getBotMessage.innerText = "Typing...";
+      setTimeout(() => {
+        getBotMessage.innerText = "Sure! How can I help you?";
+        inputRef.value = ""; // clear the input
+      }, 2000);
+    }
     getHumanMessage.innerText = inputRef.value; // display the message
   };
 
@@ -331,6 +343,6 @@ const Chatbot = () => {
   );
 }
 
-export default Chatbot;
+export default chatbot;
 
 
