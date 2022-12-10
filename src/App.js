@@ -17,7 +17,7 @@ const App = () => {
         console.log("null" === localStorage.getItem('user'))
     }, [])
     return (
-        <Box h="100vh" w="100vw" overflow="hidden">
+        <Box h="100vh" w="100vw" overflowX="hidden">
             <Routes>
                 <Route path="/" element={user !== "null" ? <HomePage /> : <Signup />} />
                 <Route path="/signup" element={<Signup />} />

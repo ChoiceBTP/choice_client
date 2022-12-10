@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import ChatBot from './chatbot';
 
 const ChatbotDialog = ({ isOpen, onClose }) => {
-    return(
+    return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
@@ -12,7 +12,6 @@ const ChatbotDialog = ({ isOpen, onClose }) => {
                 <ModalCloseButton />
                 <ModalBody>
                     <ChatBot />
-                    chatbot here
                 </ModalBody>
 
                 <ModalFooter>

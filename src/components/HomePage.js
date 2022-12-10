@@ -45,8 +45,13 @@ const HomePage = () => {
                                     Make that choice
                                 </Highlight>
                             </Heading>
-                            <Heading as="h2">
-                                Hi {user}
+                            <Heading fontSize="2xl">
+                                Hi {user},<br />
+                                <Highlight
+                                    query="own"
+                                    styles={{ px: '2', py: '1', rounded: 'full', bg: 'red.100' }}>
+                                    make this page your own!
+                                </Highlight>
                             </Heading>
                             <Tooltip label="Chatbot">
                                 <IconButton onClick={onOpen} icon={<ChatIcon />} />
