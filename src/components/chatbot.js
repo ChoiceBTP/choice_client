@@ -78,7 +78,7 @@ const chatbot = ()=> {
         }, 2000);
       }
       let welcome = [
-        "Hi|hello|Hello|hey|sup|yo|wassup|whats up|howdy|greetings|good morning|good afternoon|good evening",
+        "hi|Hi|hello|Hello|hey|sup|yo|wassup|whats up|howdy|greetings|good morning|good afternoon|good evening",
       ];
       let words2 = new RegExp(welcome);
       if (words2.test(document.querySelector("#input").value)) {
@@ -113,7 +113,7 @@ const chatbot = ()=> {
       if (words4.test(document.querySelector("#input").value)) {
         getBotMessage.innerText = "Typing...";
         setTimeout(() => {
-          getBotMessage.innerText = "You are welcome";
+          getBotMessage.innerText = "You're welcome!";
           inputRef.value = ""; // clear the input
         }, 2000);
       }
@@ -273,6 +273,18 @@ const chatbot = ()=> {
         getBotMessage.innerText = "Typing...";
         setTimeout(() => {
           getBotMessage.innerText = "NSUT has a good placement record. A high percentage of the eligible students get offered jobs by reputed firms. For information about this, please hop onto this link: http://www.nsit.ac.in/placement/";
+          inputRef.value = ""; // clear the input
+        }, 2000);
+      }
+
+      let query7 = [
+        "i want some information regarding nsut|I want some information regarding nsut|I want some information regarding NSUT|i want some information regarding NSUT|i need some information regarding nsut|I need some information regarding nsut|i need some information regarding NSUT",
+      ];
+      let words18 = new RegExp(query7);
+      if (words18.test(document.querySelector("#input").value)) {
+        getBotMessage.innerText = "Typing...";
+        setTimeout(() => {
+          getBotMessage.innerText = "Sure! How can I help you?";
           inputRef.value = ""; // clear the input
         }, 2000);
       }
