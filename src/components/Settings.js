@@ -9,7 +9,7 @@ const Settings = () => {
     const [on, setOn] = useState(colorMode === "dark");
 
     const handleLogout = () => {
-        localStorage.setItem('user', null)
+        localStorage.setItem('user', 'null')
         navigate('/signup')
     }
 

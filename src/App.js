@@ -11,19 +11,19 @@ import UpdateGoals from "./components/UpdateGoals";
 import InfoReq from "./components/InfoReq"
 
 const App = () => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState('')
     useEffect(() => {
-        // let user = localStorage.getItem('user')
         setUser(localStorage.getItem('user'))
-        console.log(localStorage.getItem('user'))
+        console.log(typeof (localStorage.getItem('user')))
+        console.log("null" === localStorage.getItem('user'))
     }, [])
 
     const [domain, setDomain] = useState("")
 
     return (
-        <Box h="100vh" w="100vw" overflow="hidden">
+        <Box h="100vh" w="100vw" overflowX="hidden">
             <Routes>
-                <Route path="/" element={user !== null ? <HomePage /> : <Signup />} />
+                <Route path="/" element={user !== "null" ? <HomePage /> : <Signup />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/settings" element={<Settings />} />
