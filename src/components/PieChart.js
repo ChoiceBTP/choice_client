@@ -7,27 +7,22 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function PieChart(props) {
 
     const scores = props.scores
-
+    console.log("pie scores ", scores)
     const labels = [] 
     const topic_scores = []
+    const label_freq = {}
 
     for (let [key, value] of Object.entries(scores)) {
-        for (let [key2, value2] of Object.entries(value)) {
-            labels.push(key2);
-            topic_scores.push(0);
-        }
-        break
-    }
+        if(!label_freq[value]) label_freq[value] = 0
+        label_freq[value] +=1
+    }   
 
-    for (let [key, value] of Object.entries(scores)) {
-        let index = 0
-        for (let [key2, value2] of Object.entries(value)) {
-            topic_scores[index] += value2
-            index+=1
-        }
+    for (let [key, value] of Object.entries(label_freq)) {
+        labels.push(key)
+        topic_scores.push(value)
     }
     
-    console.log(labels, topic_scores)
+    console.log("pie ", labels, topic_scores)
 
     const data = {
         labels: labels,
@@ -36,12 +31,16 @@ export default function PieChart(props) {
             label: 'Topics Surfed',
             data: topic_scores,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
+                'rgba(225, 77, 42, 0.9)',
+                'rgba(253, 132, 31, 0.9)',
+                'rgba(62, 109, 156, 0.9)',
+                'rgba(0, 18, 83, 0.9)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
+                'rgba(225, 77, 42, 1)',
+                'rgba(253, 132, 31, 1)',
+                'rgba(62, 109, 156, 1)',
+                'rgba(0, 18, 83, 1)'
             ],
             borderWidth: 1,
         },

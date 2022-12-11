@@ -29,7 +29,7 @@ const App = () => {
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/track" element={<InfoReq domain={domain}/>} />
                 <Route path="/update" element={<UpdateGoals domain={domain} handleChange={setDomain}/>}/>
-                <Route path="/dashboard" element={<Dashboard/>} />
+                <Route path="/dashboard" element={<Dashboard domain={domain}/>} />
             </Routes>
         </Box>
     )

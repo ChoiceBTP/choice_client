@@ -23,24 +23,24 @@ const UpdateGoals = ({domain, handleChange}) => {
                         </Card> */}
                     {/* </Flex> */}
                     <SimpleGrid padding="5" spacing={20} columns={2}>
-                        <Card align="center" bg={domain == "Machine Learning" ? "green" : "twitter.700"} onClick={() => handleChange("Machine Learning")} size="lg">
+                        <Card _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.1)" }} align="center" bg={domain == "Machine Learning " ? "green" : "twitter.700"} onClick={() => handleChange("Machine Learning ")} size="lg">
                             <CardHeader>
                                 <Heading size='md' color="white">Machine Learning</Heading>
                             </CardHeader>
                         </Card>
-                        <Card align="center" bg={domain == "Web Development" ? "green" : "twitter.700"} onClick={() => handleChange("Web Development")} size="lg">
+                        <Card _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.1)" }} align="center" bg={domain == "Web Development" ? "green" : "twitter.700"} onClick={() => handleChange("Web Development")} size="lg">
                             <CardHeader>
-                                <Heading size='md' color="white">Wev Development</Heading>
+                                <Heading size='md' color="white">Web Development</Heading>
                             </CardHeader>
                         </Card>
-                        <Card align="center" bg={domain == "Data Structures" ? "green" : "twitter.700"} onClick={() => handleChange("Data Structures")} size="lg">
+                        <Card _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.1)" }} align="center" bg={domain == "Data Structures and Algorithms" ? "green" : "twitter.700"} onClick={() => handleChange("Data Structures and Algorithms")} size="lg">
                             <CardHeader>
-                                <Heading size='md' color="white">Data Structures</Heading>
+                                <Heading size='md' color="white">Data Structures and Algorithms</Heading>
                             </CardHeader>
                         </Card>
-                        <Card align="center" bg={domain == "Management" ? "green" : "twitter.700"} onClick={() => handleChange("Management")} size="lg">
+                        <Card _hover={{ transition: "all .3s ease-in-out", transform: "scale(1.1)" }} align="center" bg={domain == "Social Science" ? "green" : "twitter.700"} onClick={() => handleChange("Social Science")} size="lg">
                             <CardHeader>
-                                <Heading size='md' color="white">Management</Heading>
+                                <Heading size='md' color="white">Social Science</Heading>
                             </CardHeader>
                         </Card>
 
