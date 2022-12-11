@@ -1,8 +1,29 @@
+import React from "react";
 import { Box, Flex, Grid, Heading, SimpleGrid } from "@chakra-ui/react"
 import HomeButton from "./HomeButton";
 import SettingsButton from "./SettingsButton";
+import PieChart from "./PieChart";
+import BarChart from "./BarChart"
 
 const Dashboard = () => {
+
+    const [scores, setScores] = React.useState({});
+
+    React.useEffect(() => {
+
+        const requestOptions = {
+            method: 'GET',
+        };
+
+        async function fetchScores() {
+            let response = await fetch('/score', requestOptions);
+            let data = await response.json();
+            setScores(data);
+        }
+    
+        fetchScores();
+    }, [])
+
     return (
         <>
             <HomeButton />
@@ -11,12 +32,9 @@ const Dashboard = () => {
                 <Heading as="h1">
                     Dashboard
                 </Heading>
-                <SimpleGrid columns={3} padding="5" spacing={10}>
-                    <Box bg='gray' height='30vh'></Box>
-                    <Box bg='gray' height='30vh'></Box>
-                    <Box bg='gray' height='30vh'></Box>
-                    <Box bg='gray' height='30vh'></Box>
-                    <Box bg='gray' height='30vh'></Box>
+                <SimpleGrid columns={2} padding="2" spacing={20}>
+                    <Box height='30vh' style={{width:'60%', height:'60%'}}><PieChart scores={scores}/></Box>
+                    <Box height='30vh'><BarChart scores={scores}/></Box>
                 </SimpleGrid>
             </Flex>
         </>

@@ -17,6 +17,9 @@ const App = () => {
         setUser(localStorage.getItem('user'))
         console.log(localStorage.getItem('user'))
     }, [])
+
+    const [domain, setDomain] = useState("")
+
     return (
         <Box h="100vh" w="100vw" overflow="hidden">
             <Routes>
@@ -24,8 +27,9 @@ const App = () => {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/track" element={<InfoReq />} />
-                <Route path="/update" element={<UpdateGoals />} />
+                <Route path="/track" element={<InfoReq domain={domain}/>} />
+                <Route path="/update" element={<UpdateGoals domain={domain} handleChange={setDomain}/>}/>
+                <Route path="/dashboard" element={<Dashboard/>} />
             </Routes>
         </Box>
     )

@@ -1,4 +1,6 @@
 import React from "react";
+import HomeButton from "./HomeButton";
+import SettingsButton from "./SettingsButton";
 import { MuiPickersUtilsProvider, DateTimePicker } from '@material-ui/pickers';
 import { Button, Input } from '@chakra-ui/react'
 import { Center} from '@chakra-ui/react'
@@ -8,27 +10,30 @@ import {
   FormControl,
   FormLabel
 } from '@chakra-ui/react'
+import { Link, useNavigate } from "react-router-dom"
 
-export default function InfoReq() {
+export default function InfoReq({domain}) {
 
     const [formData, setFormData] = React.useState({
-        "domain": "",
+        "domain": domain,
         "start": new Date(),
         "end": new Date()
     })
 
     const [submit, setSubmit] = React.useState(0)
 
-    function handleChange(event) {
-        const {name, value, type} = event.target
-        setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: value
-            }
-        })
-        // console.log(formData)
-    }
+    const naviage = useNavigate();
+
+    // function handleChange(event) {
+    //     const {name, value, type} = event.target
+    //     setFormData(prevFormData => {
+    //         return {
+    //             ...prevFormData,
+    //             [name]: value
+    //         }
+    //     })
+    //     // console.log(formData)
+    // }
 
     function handleStart(value) {
         setFormData(prevFormData => {
@@ -58,9 +63,13 @@ export default function InfoReq() {
       };
   
       const response = await fetch('/data/', requestOptions);
+      console.log("see res ", response);
     }
-
     if(submit) sendFormData();
+  }, [submit])
+
+  React.useEffect(() => {
+    if(submit > 0) naviage('/dashboard');
   }, [submit])
 
   function handleSubmit(event) {
@@ -70,21 +79,12 @@ export default function InfoReq() {
   }
 
     return (
-      <Flex h="100%" w="100%" overflow="hidden" direction="row" justify="space-evenly">
+      <>
+      <HomeButton />
+      <SettingsButton />
+      <Flex h="100%" w="100%" overflow="hidden" direction="row" justify="space-evenly">        
         <Center>
           <form>
-              <Flex direction='row' justify="center"><label>Domain</label></Flex>
-              <Input 
-                  type = "text"
-                  value={formData.domain}
-                  placeholder="Domain"
-                  onChange={handleChange}
-                  name="domain"
-                  size = "med"
-              />
-              <br/>
-              <br/>
-
               <Flex direction='row' justify="space-between">
                 <Flex direction='column' justify="center">
                 <Flex direction='row' justify="center"><label>Start</label></Flex>
@@ -107,9 +107,10 @@ export default function InfoReq() {
               <br />
               
               <Flex direction='row' justify="center"><Button colorScheme='blue' onClick={handleSubmit}>Submit</Button></Flex>
-        </form>
-      </Center>
-    </Flex>
+          </form>
+        </Center>
+      </Flex>
+    </>
     )
 };
 
