@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react"
 import { useState, useRef } from "react";
 import ChatBot from './chatbot';
+import ChatBot2 from './chatBot2';
 
 const ChatbotDialog = ({ isOpen, onClose }) => {
     return (
@@ -11,7 +12,7 @@ const ChatbotDialog = ({ isOpen, onClose }) => {
                 <ModalHeader>Choice Chatbot</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    <ChatBot />
+                    <ChatBot2 />
                 </ModalBody>
 
                 <ModalFooter>
